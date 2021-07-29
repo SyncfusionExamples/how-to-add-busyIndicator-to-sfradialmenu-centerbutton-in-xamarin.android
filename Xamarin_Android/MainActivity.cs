@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -8,6 +8,7 @@ using Android.OS;
 using Syncfusion.SfRadialMenu.Android;
 using Android.Graphics;
 using Com.Syncfusion.Sfbusyindicator;
+using System.Threading.Tasks;
 
 namespace Xamarin_Android
 {
@@ -21,7 +22,6 @@ namespace Xamarin_Android
         SfRadialMenu radialMenu;
         SfBusyIndicator busyIndicator;
         Typeface typeface;
-
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -180,7 +180,7 @@ namespace Xamarin_Android
             busyIndicator.LayoutParameters = new FrameLayout.LayoutParams((int)40, (int)40, GravityFlags.Center);
             busyIndicator.AnimationType = Com.Syncfusion.Sfbusyindicator.Enums.AnimationTypes.SingleCircle;
             busyIndicator.SetForegroundGravity(GravityFlags.Center);
-            busyIndicator.SetBackgroundColor(Color.Gray);
+            busyIndicator.SetBackgroundColor(Color.Transparent);
             busyIndicator.ViewBoxHeight = 50;
             busyIndicator.ViewBoxWidth = 50;
 
@@ -188,24 +188,27 @@ namespace Xamarin_Android
             radialMenu.CenterButtonView = busyIndicator;
             radialMenu.IsDragEnabled = true;
             radialMenu.EnableRotation = true;
-            
             radialMenu.OuterRimColor = Color.Gray;
             radialMenu.CenterButtonBackground = Color.Gray;
             radialMenu.CenterButtonRadius = 25;
             radialMenu.RimRadius = 100; // We can also change the Rim to set the image inside the RadialMenu item.
-            radialMenu.Opened += RadialMenu_Opened;
             frontFrame.AddView(radialMenu);
+            RunMethod();
             SetContentView(mainLayout);
         }
 
-        private void RadialMenu_Opened(object sender, OpenedEventArgs e)
+        public async void RunMethod()
         {
+            busyIndicator.IsBusy = true;
+            await Task.Delay(5000);
+            busyIndicator.IsBusy = false;
             busyIndicator.Visibility = ViewStates.Invisible;
             radialMenu.CenterButtonText = "\uE703";
             radialMenu.CenterButtonTextSize = 17;
             radialMenu.CenterButtonTypeface = typeface;
             radialMenu.CenterButtonTextColor = Color.White;
         }
+      
 
         void FacebookItem_ItemTapped(object sender, RadialMenuItemTappedEventArgs e)
         {
