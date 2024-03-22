@@ -2,28 +2,28 @@
 
 This section explains the steps required to launch the radial menu with hierarchical items that can be used as mobile phone system settings. This section covers only the minimal features that needed to get started with the radial menu.
 
-# Adding SfRadialMenu reference
+## Adding SfRadialMenu reference
 You can add SfRadialMenu reference using one of the following methods:
 
-## Method 1: Adding SfRadialMenu reference from nuget.org
+### Method 1: Adding SfRadialMenu reference from nuget.org
 
 Syncfusion Xamarin components are available in nuget.org. To add SfRadialMenu to your project, open the NuGet package manager in Visual Studio, search for Syncfusion.Xamarin.SfRadialMenu, and then install it.
 
-## Method 2: Adding SfRadialMenu reference from toolbox
+### Method 2: Adding SfRadialMenu reference from toolbox
 
 Syncfusion also provides Xamarin Toolbox. Using this toolbox, you can drag the SfRadialMenu control to the XAML page. It will automatically install the required NuGet packages and add the namespace to the page. To install Syncfusion Xamarin Toolbox, refer to Toolbox.
 
-## Method 3: Adding SfRadialMenu assemblies manually from the installed location
+### Method 3: Adding SfRadialMenu assemblies manually from the installed location
 
 If you prefer to manually reference the assemblies instead referencing from NuGet, add the following assemblies in respective projects.
 
-# Creating a simple radial menu
+## Creating a simple radial menu
 The SfRadialMenu control is configured entirely in C# code or in XAML markup. The following steps explain how to create SfRadialMenu and configure its elements:
 
-## Create the project
+### Create the project
 Create a new BlankApp (Xamarin.Forms.Portable) application in Xamarin Studio or Visual Studio for Xamarin.Forms.
 
-## Adding radial menu in Xamarin.Forms
+### Adding radial menu in Xamarin.Forms
 *   Add the required assembly references to the pcl and renderer projects.
 
 *   Add namespace for the referred assemblies.
@@ -41,7 +41,7 @@ Set the radial menu control as content to the ContentPage.
         <radialMenu:SfRadialMenu x:Name="radialMenu"/>
  </ContentPage.Content>
 ```
-## Adding radial menu with items
+### Adding radial menu with items
 
 **[XAML]**
 ```
@@ -63,7 +63,7 @@ Set the radial menu control as content to the ContentPage.
     </radialMenu:SfRadialMenu>
 ```
 
-# CenterButtonText and CenterButtonBackText
+### CenterButtonText and CenterButtonBackText
 The CenterButtonText changes the text of the center button in SfRadialMenu, and the CenterButtonBackText changes the text of the center back button in SfRadialMenu.
 
 **[XAML]**
